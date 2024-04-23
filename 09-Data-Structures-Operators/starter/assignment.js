@@ -264,10 +264,14 @@ const {
 } = books[0];
 
 // 2.6
-const printBookInfo = function ({title, author, year = "year unknown"}) {
-    console.log(`${title} by ${author}, ${year}`);
-}
-printBookInfo({ title: 'Algorithms', author: 'Robert Sedgewick', year: '2011' });
+const printBookInfo = function ({ title, author, year = 'year unknown' }) {
+  console.log(`${title} by ${author}, ${year}`);
+};
+printBookInfo({
+  title: 'Algorithms',
+  author: 'Robert Sedgewick',
+  year: '2011',
+});
 printBookInfo({ title: 'Algorithms', author: 'Robert Sedgewick' });
 
 //// The Spread Operator
@@ -277,6 +281,40 @@ console.log(bookAuthors);
 
 // 3.2
 const spellWord = function (str) {
-    console.log(...str);
+  console.log(...str);
+};
+spellWord('Javascript');
+
+// Rest Pattern and Parameters
+// 4.1
+const [mainKeyword, ...rest] = books[0].keywords;
+
+// 4.2
+const { publisher: bookPublisher, ...restOfTheBook } = books[1];
+
+// 4.3
+const printBookAuthorsCount = function (title, ...authors) {
+  console.log(`The book "${title}" has ${authors.length} authors`);
+};
+
+printBookAuthorsCount('Algorithms', 'Robert Sedgewick', 'Kevin Wayne');
+
+// Short Circuiting (&& and ||)
+// 5.1
+const hasExamplesInJava = function (book) {
+  console.log(book.programmingLanguage === 'Java' || 'No data available');
+};
+
+hasExamplesInJava(books[1]);
+
+// 5.2
+for (let i = 0; i < books.length; i++) {
+  books[i].onlineContent &&
+    console.log(`"${books[i].title}" provides online content`);
 }
-spellWord("Javascript")
+
+// The Nullish Coalescing Operator (??)
+// 6.1
+for (let i = 0; i < books.length; i++) {
+  books[i].onlineContent ?? console.log(`"${books[i].title}" provides no data about online content`);
+}
