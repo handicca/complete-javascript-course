@@ -25,21 +25,21 @@ menggunakan, dan prilaku ini disebut prototype inheritance.
 // Constructor functions and the new operator
 // Arrow function tidak bisa untuk constructor functions karena tidak memiliki this
 
-const Person = function (firstName, birthYear) {
-  // instance properties
-  this.firstName = firstName;
-  this.birthYear = birthYear;
+// const Person = function (firstName, birthYear) {
+//   // instance properties
+//   this.firstName = firstName;
+//   this.birthYear = birthYear;
 
-  // Never do this cuz ini akan membuat salinan dan bad performance
-  // Better menggunakan prototype inheritance
-  // this.calcAge = function () {
-  //     console.log(2037 - this.birthYear);
-  // }
-};
+//   // Never do this cuz ini akan membuat salinan dan bad performance
+//   // Better menggunakan prototype inheritance
+//   // this.calcAge = function () {
+//   //     console.log(2037 - this.birthYear);
+//   // }
+// };
 
-const handika = new Person('Handika', 2004);
-console.log(handika);
-console.log(handika instanceof Person); // true
+// const handika = new Person('Handika', 2004);
+// console.log(handika);
+// console.log(handika instanceof Person); // true
 
 // BTS new keyword
 // 1. New empty {} created
@@ -62,50 +62,50 @@ menghubungkannya dengan fungsi konstruktor yang diberikan, sehingga setiap kali 
 /*
 Setiap function dlm Javascript secara otomatis memiliki properti yg disebut prototype.
 */
-Person.prototype.calcAge = function () {
-  console.log(2037 - this.birthYear);
-};
+// Person.prototype.calcAge = function () {
+//   console.log(2037 - this.birthYear);
+// };
 
-handika.calcAge();
+// handika.calcAge();
 
-console.log(handika.__proto__);
-console.log(handika.__proto__ === Person.prototype); // true
+// console.log(handika.__proto__);
+// console.log(handika.__proto__ === Person.prototype); // true
 
-console.log(Person.prototype.isPrototypeOf(handika)); // true
-console.log(Person.prototype.isPrototypeOf(Person)); // false
+// console.log(Person.prototype.isPrototypeOf(handika)); // true
+// console.log(Person.prototype.isPrototypeOf(Person)); // false
 
-// set property
-// property ini tidak berada di object yang dibuat melainkan didalam prototype tetapi object tersebut dapat mengakses property tersebut.
-Person.prototype.species = 'Homo Sapiens';
-console.log(handika.species);
-console.log(handika.hasOwnProperty('firstName')); // true
-console.log(handika.hasOwnProperty('species')); // false
+// // set property
+// // property ini tidak berada di object yang dibuat melainkan didalam prototype tetapi object tersebut dapat mengakses property tersebut.
+// Person.prototype.species = 'Homo Sapiens';
+// console.log(handika.species);
+// console.log(handika.hasOwnProperty('firstName')); // true
+// console.log(handika.hasOwnProperty('species')); // false
 
-console.log(handika.__proto__);
-// Object.prototype (top of prototype chain)
-console.log(handika.__proto__.__proto__);
-console.log(handika.__proto__.__proto__.__proto__); // null
+// console.log(handika.__proto__);
+// // Object.prototype (top of prototype chain)
+// console.log(handika.__proto__.__proto__);
+// console.log(handika.__proto__.__proto__.__proto__); // null
 
-console.dir(Person.prototype.constructor); // return diri sendiri
+// console.dir(Person.prototype.constructor); // return diri sendiri
 
-const arr = [3, 6, 5, 6, 4, 9, 9, 4]; // new Array = []
-console.log(arr.__proto__);
-console.log(arr.__proto__ == Array.prototype); // true
+// const arr = [3, 6, 5, 6, 4, 9, 9, 4]; // new Array = []
+// console.log(arr.__proto__);
+// console.log(arr.__proto__ == Array.prototype); // true
 
-// Object.prototype (top of prototype chain)
-console.log(arr.__proto__.__proto__);
+// // Object.prototype (top of prototype chain)
+// console.log(arr.__proto__.__proto__);
 
-// menambah method array pada object prototype
-// tetapi jangan dibiasakan melakukan ini
-Array.prototype.unique = function () {
-  return [...new Set(this)];
-};
+// // menambah method array pada object prototype
+// // tetapi jangan dibiasakan melakukan ini
+// Array.prototype.unique = function () {
+//   return [...new Set(this)];
+// };
 
-console.log(arr.unique());
+// console.log(arr.unique());
 
 ///////////////////////////////////////
 // Coding Challenge #1
-console.log('===== Coding Challenge #1 =====');
+
 /* 
 1. Use a constructor function to implement a Car. A car has a make and a speed property. The speed property is the current speed of the car in km/h;
 2. Implement an 'accelerate' method that will increase the car's speed by 10, and log the new speed to the console;
@@ -118,25 +118,54 @@ DATA CAR 2: 'Mercedes' going at 95 km/h
 GOOD LUCK 😀
 */
 
-const Car = function (make, speed) {
-  this.make = make;
-  this.speed = speed;
-};
+// const Car = function (make, speed) {
+//   this.make = make;
+//   this.speed = speed;
+// };
 
-Car.prototype.accelerate = function () {
-  this.speed += 10;
-  console.log(`"${this.make}" going at ${this.speed} km/h`);
-};
+// Car.prototype.accelerate = function () {
+//   this.speed += 10;
+//   console.log(`"${this.make}" going at ${this.speed} km/h`);
+// };
 
-Car.prototype.brake = function () {
-  this.speed -= 5;
-  console.log(`"${this.make}" going at ${this.speed} km/h`);
-};
+// Car.prototype.brake = function () {
+//   this.speed -= 5;
+//   console.log(`"${this.make}" going at ${this.speed} km/h`);
+// };
 
-const bmw = new Car('BMW', 120);
-const mercedes = new Car('Mercedes', 95);
+// const bmw = new Car('BMW', 120);
+// const mercedes = new Car('Mercedes', 95);
 
-bmw.accelerate();
-bmw.brake();
-mercedes.accelerate();
-mercedes.brake();
+// bmw.accelerate();
+// bmw.brake();
+// mercedes.accelerate();
+// mercedes.brake();
+
+//// ES6 Classes => ini hanyalah syntatic sugar untuk constructor functions
+// class expression
+// const PersonCl = class{}
+
+// class declaration
+class PersonCl {
+  constructor(firstName, birthYear) {
+    this.firstName = firstName;
+    this.birthYear = birthYear;
+  }
+
+  // ini akan menjadi bagian prototype object bukan dalam object itu sendiri
+  calcAge() {
+    console.log(2037 - this.birthYear);
+  }
+}
+
+const ridho = new PersonCl("Ridho", 1999);
+console.log(ridho);
+ridho.calcAge()
+console.log(ridho.__proto__ === PersonCl.prototype);
+
+// perlu diingat
+// 1. Classes aer not Hoisted
+// 2. classes are first class citizen(function)
+// 3. Classes are executed in strict mode even we not active strict mode
+
+
