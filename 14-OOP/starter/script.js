@@ -147,20 +147,36 @@ GOOD LUCK 😀
 
 // class declaration
 class PersonCl {
-  constructor(firstName, birthYear) {
-    this.firstName = firstName;
+  constructor(fullName, birthYear) {
+    this.fullName = fullName;
     this.birthYear = birthYear;
   }
 
   // ini akan menjadi bagian prototype object bukan dalam object itu sendiri
   calcAge() {
-    console.log(2037 - this.birthYear);
+    console.log(2024 - this.birthYear);
+  }
+
+  get age() {
+    return 2024 - this.birthYear
+  }
+
+  // Set property yang sudah ada.
+  set fullName(name) {
+    console.log(name);
+    if (name.includes(" ")) this._fullname = name;
+    else alert(`${name} is not full name!`);
+  }
+
+  get fullName() {
+    return this._fullname;
   }
 }
 
-const ridho = new PersonCl("Ridho", 1999);
+const ridho = new PersonCl("Ridho Syam", 1999);
 console.log(ridho);
 ridho.calcAge()
+console.log(ridho.age);
 console.log(ridho.__proto__ === PersonCl.prototype);
 
 // perlu diingat
@@ -169,3 +185,27 @@ console.log(ridho.__proto__ === PersonCl.prototype);
 // 3. Classes are executed in strict mode even we not active strict mode
 
 
+/* 
+Setters & Getters => pada dasarnya adalah fungsi mendapatkan dan menetapkan nilai seperti namanya,
+tetapi diluarnya masih terlihat seperti properti biasa.
+*/
+
+const account = {
+  owner: "Handika",
+  movements: [26, 99, 75, 78],
+
+  get latest() {
+    return this.movements.at(-1)
+  },
+
+  set latest(mov) {
+    this.movements.push(mov)
+  }
+}
+
+// get
+console.log(account.latest);
+
+// set
+account.latest = 23
+console.log(account.movements);
