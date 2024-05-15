@@ -32,14 +32,22 @@ menggunakan, dan prilaku ini disebut prototype inheritance.
 
 //   // Never do this cuz ini akan membuat salinan dan bad performance
 //   // Better menggunakan prototype inheritance
-//   // this.calcAge = function () {
-//   //     console.log(2037 - this.birthYear);
-//   // }
+//   this.calcAge = function () {
+//       console.log(2037 - this.birthYear);
+//   }
 // };
 
 // const handika = new Person('Handika', 2004);
 // console.log(handika);
 // console.log(handika instanceof Person); // true
+
+// // // Static Methods
+// Person.hey = function () {
+//   console.log('Hey there 👋');
+//   console.log(this);
+// };
+// Person.hey();
+// handika.hey(); // error
 
 // BTS new keyword
 // 1. New empty {} created
@@ -146,66 +154,140 @@ GOOD LUCK 😀
 // const PersonCl = class{}
 
 // class declaration
-class PersonCl {
-  constructor(fullName, birthYear) {
-    this.fullName = fullName;
-    this.birthYear = birthYear;
-  }
+// class PersonCl {
+//   constructor(fullName, birthYear) {
+//     this.fullName = fullName;
+//     this.birthYear = birthYear;
+//   }
 
-  // ini akan menjadi bagian prototype object bukan dalam object itu sendiri
-  calcAge() {
-    console.log(2024 - this.birthYear);
-  }
+//   // Instance Methods
+//   // ini akan menjadi bagian prototype object bukan dalam object itu sendiri
+//   calcAge() {
+//     console.log(2024 - this.birthYear);
+//   }
 
-  get age() {
-    return 2024 - this.birthYear
-  }
+//   get age() {
+//     return 2024 - this.birthYear;
+//   }
 
-  // Set property yang sudah ada.
-  set fullName(name) {
-    console.log(name);
-    if (name.includes(" ")) this._fullname = name;
-    else alert(`${name} is not full name!`);
-  }
+//   // Set property yang sudah ada.
+//   set fullName(name) {
+//     console.log(name);
+//     if (name.includes(' ')) this._fullname = name;
+//     else alert(`${name} is not full name!`);
+//   }
 
-  get fullName() {
-    return this._fullname;
-  }
-}
+//   get fullName() {
+//     return this._fullname;
+//   }
 
-const ridho = new PersonCl("Ridho Syam", 1999);
-console.log(ridho);
-ridho.calcAge()
-console.log(ridho.age);
-console.log(ridho.__proto__ === PersonCl.prototype);
+//   // Static Methods
+//   static hey() {
+//     console.log("Hey there 👋");
+//     console.log(this);
+//   }
+// }
+
+// const ridho = new PersonCl('Ridho Syam', 1999);
+// console.log(ridho);
+// ridho.calcAge();
+// console.log(ridho.age);
+// console.log(ridho.__proto__ === PersonCl.prototype);
+
+// PersonCl.hey();
 
 // perlu diingat
 // 1. Classes aer not Hoisted
 // 2. classes are first class citizen(function)
 // 3. Classes are executed in strict mode even we not active strict mode
 
-
 /* 
 Setters & Getters => pada dasarnya adalah fungsi mendapatkan dan menetapkan nilai seperti namanya,
 tetapi diluarnya masih terlihat seperti properti biasa.
 */
 
-const account = {
-  owner: "Handika",
-  movements: [26, 99, 75, 78],
+// const account = {
+//   owner: 'Handika',
+//   movements: [26, 99, 75, 78],
 
-  get latest() {
-    return this.movements.at(-1)
-  },
+//   get latest() {
+//     return this.movements.at(-1);
+//   },
 
-  set latest(mov) {
-    this.movements.push(mov)
+//   set latest(mov) {
+//     this.movements.push(mov);
+//   },
+// };
+
+// // get
+// console.log(account.latest);
+
+// // set
+// account.latest = 23;
+// console.log(account.movements);
+
+// // object.create()
+
+// const PersonProto = {
+//   /* perlu di ingat fungsi ini tidak ada hubungannya dgn fungsi konstraktor yg kita lihat sebelumnya.
+//    ini hanyalah cara manual untuk menginisialisasi object. dan nama fungsi ini bisa apa saja tidak hanya init.*/
+//   init(firstName, birthYear) {
+//     this.firstName = firstName;
+//     this.birthYear = birthYear;
+//   },
+
+//   calcAge() {
+//     console.log(2024 - this.birthYear);
+//   }
+// }
+
+// const steven = Object.create(PersonProto);
+// steven.init("Steven", 2004);
+// steven.calcAge();
+
+///////////////////////////////////////
+// Coding Challenge #2
+
+/* 
+1. Re-create challenge 1, but this time using an ES6 class;
+2. Add a getter called 'speedUS' which returns the current speed in mi/h (divide by 1.6);
+3. Add a setter called 'speedUS' which sets the current speed in mi/h (but converts it to km/h before storing the value, by multiplying the input by 1.6);
+4. Create a new car and experiment with the accelerate and brake methods, and with the getter and setter.
+
+DATA CAR 1: 'Ford' going at 120 km/h
+
+GOOD LUCK 😀
+*/
+
+class CarCl {
+  constructor(make, speed) {
+    this.make = make;
+    this.speed = speed;
+  }
+
+  acceleration() {
+    this.speed += 10;
+    console.log(`"${this.make}" going at ${this.speed} km/h`);
+  }
+
+  brake() {
+    this.speed -= 5;
+    console.log(`"${this.make}" going at ${this.speed} km/h`);
+  }
+
+  get speedUS() {
+    return this.speed / 1.6;
+  }
+
+  set speedUS(speed) {
+    this.speed = speed * 1.6;
   }
 }
 
-// get
-console.log(account.latest);
-
-// set
-account.latest = 23
-console.log(account.movements);
+const ford = new CarCl("Ford", 120);
+console.log(ford.speedUS);
+ford.acceleration()
+ford.acceleration()
+ford.brake()
+ford.speedUS = 50;
+console.log(ford);
