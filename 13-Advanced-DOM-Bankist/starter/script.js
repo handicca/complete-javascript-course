@@ -127,7 +127,7 @@ const handlerHover = function (e) {
     logo.style.opacity = this;
   }
 };
-
+// Passing "argument" into handler
 nav.addEventListener('mouseover', handlerHover.bind(0.5));
 nav.addEventListener('mouseout', handlerHover.bind(1));
 
@@ -305,7 +305,7 @@ const slider = function () {
   });
 };
 
-slider()
+slider();
 // // Selecting, Creating, and Deleting Elements
 // // Selecting Elements
 
