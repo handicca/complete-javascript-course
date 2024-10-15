@@ -1,4 +1,4 @@
-# Complete JavaScript Course - Forked by [Your Name]
+# Complete JavaScript Course - Forked by [Handika]
 
 This repository is a **fork** of Jonas Schmedtmann's [Complete JavaScript Course](https://github.com/jonasschmedtmann/complete-javascript-course) on GitHub. It contains course materials, projects, and challenges aimed at mastering modern JavaScript.
 
