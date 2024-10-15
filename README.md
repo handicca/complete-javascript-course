@@ -1,73 +1,54 @@
-# Course Material and FAQ for my Complete JavaScript Course
+# Complete JavaScript Course - Forked by [Your Name]
 
-This branch of the repo contains starter files and final code for all sections and projects of the course, **exactly as shown in the videos**.
+This repository is a **fork** of Jonas Schmedtmann's [Complete JavaScript Course](https://github.com/jonasschmedtmann/complete-javascript-course) on GitHub. It contains course materials, projects, and challenges aimed at mastering modern JavaScript.
 
-Use starter code to start each section, and **final code to compare it with your own code whenever something doesn't work**!
+## 🔥 What’s in This Repo?
 
-There is also a the [updates-and-fixes](https://github.com/jonasschmedtmann/complete-javascript-course/tree/updates-and-fixes) branch which is kept up-to-date with **latest package updates and important bugfixes 🐛**
+This repo includes all the materials and projects from the **Complete JavaScript Course**, covering everything from the basics to advanced JavaScript concepts. Topics include:
 
-🚨 **_Please read the following Frequently Asked Questions (FAQ) carefully before starting the course_** 🚨
+- JavaScript Basics: Variables, Data Types, Operators
+- DOM Manipulation & Events
+- Object-Oriented Programming (OOP) with JavaScript
+- Asynchronous JavaScript: Promises, Async/Await, AJAX
+- Modern JavaScript ES6+ features
+- Real-World Projects and Challenges
 
-## FAQ
+## 📌 My Learning Journey
 
-### Q1: How do I download the files?
+I am using this forked repository to track my learning progress and experiment with my own solutions. Here’s how I’m approaching the course:
 
-**A:** If you're new to GitHub and just want to download the entire code, hit the green button saying "Code", and then choose the "Download ZIP" option. If you can't see the button (on mobile), use [this link](https://github.com/jonasschmedtmann/complete-javascript-course/archive/master.zip) instead.
+- 📝 Following the course step-by-step.
+- 🛠️ Adding personal notes and extra comments to clarify key concepts.
+- 💻 Implementing and modifying project files with my own features.
+- 📊 Testing different methods and problem-solving approaches.
 
-### Q2: I'm stuck! Where do I get help?
+## 📅 Progress Tracker
 
-**A:** Have you actually tried to fix the problem on your own? **Have you compared your code to the final code?** If you failed fixing your problem, please **post a detailed description of the problem to the Q&A area of that video over at Udemy**, along with a [codepen](https://codepen.io/pen/) containing your code. You will get help there. Please don't send me a personal message or email to fix coding problems.
+| Section                          | Status |
+|-----------------------------------|--------|
+| JavaScript Fundamentals           | ✅ Done |
+| DOM Manipulation & Events         | ✅ Done |
+| Advanced Functions                | ✅ Done |
+| Object-Oriented Programming (OOP) | 🔄 In Progress |
+| Asynchronous JavaScript           | ⬜ Upcoming |
+| Final Projects                    | ⬜ Upcoming |
 
-### Q3: What VSCode theme are you using?
+## 💡 My Contributions
 
-**A:** I use Monokai Pro for all my coding and course production. It's a paid theme (I', **not** affiliated with them), but you can actually use the free demo version forever 😅
+In this forked repository, I plan to:
+- Implement custom features in the provided projects.
+- Refactor code using modern JavaScript ES6+ syntax.
+- Add comments and documentation to explain tricky concepts.
+- Solve additional challenges beyond what’s provided in the course.
 
-### Q4: Can I see a final version of the course projects?
+## 👨‍💻 About the Instructor
 
-**A:** Sure! Here you go:
+This course is created by **Jonas Schmedtmann**, a highly respected instructor in web development and JavaScript. You can find the original repository [here](https://github.com/jonasschmedtmann/complete-javascript-course).
 
-- [Pig Game](https://pig-game-v2.netlify.app) (DOM Manipulation)
-- [Bankist](https://bankist.netlify.app/) (Arrays, Numbers, Dates, Timers. Fake "log in" with user `js` and PIN `1111`)
-- [Bankist Site](https://bankist-dom.netlify.app/) (Advanced DOM and Events)
-- [Mapty](https://mapty.netlify.app/) (OOP, Geolocation, Project planning)
-- [forkify](https://forkify-v2.netlify.app/) (Final advanced project)
+## 🚀 Check out the course!
 
-### Q5: Videos don't load, can you fix it?
+If you're interested in learning JavaScript from the ground up or sharpening your existing skills, I highly recommend the [Complete JavaScript Course](https://www.udemy.com/course/the-complete-javascript-course/) by Jonas Schmedtmann.
 
-**A:** Unfortunately, there is nothing I can do about it. The course is hosted on Udemy, and sometimes they have technical issues like this. Please just come back a bit later or [contact their support team](https://support.udemy.com/hc/en-us).
+---
 
-### Q6: Videos are blurred / have low quality, can you fix it?
-
-**A:** Please open video settings and change the quality from 'Auto' to another value, for example 720p. If that doesn't help, please [contact the Udemy support team](https://support.udemy.com/hc/en-us).
-
-### Q7: Are the videos downloadable?
-
-**A:** Videos used to be downloadable, but unfortunately, Udemy has disabled video downloads on all my courses in order to fight piracy. There is nothing I can do about this.
-
-### Q8: I want to put these projects in my portfolio. Is that allowed?
-
-**A:** Absolutely! Just make sure you actually built them yourself by following the course, and that you understand what you did. What is **not allowed** is that you create your own course/videos/articles based on this course's content!
-
-### Q9: You mentioned your resources page. Where can I find it?
-
-**A:** It's on my website at <http://codingheroes.io/resources>. You can subscribe for updates 😉
-
-### Q10: I love your courses and want to get updates on new courses. How?
-
-**A:** First, you can subscribe to my email list [at my website](http://codingheroes.io/resources). Plus, I make important announcements on twitter [@jonasschmedtman](https://twitter.com/jonasschmedtman), so you should definitely follow me there 🔥
-
-### Q11: How do I get my certificate of completion?
-
-**A:** A certificate of completion is provided by Udemy after you complete 100% of the course. After completing the course, just click on the "Your progress" indicator in the top right-hand corner of the course page. If you want to change your name on the certificate, please [contact the Udemy support team](https://support.udemy.com/hc/en-us).
-
-### Q12: Can you add subtitles in my language?
-
-**A:** No. I provide professional English captions, but Udemy is responsible for subtitles in all other languages (automatic translations). So please [contact the Udemy support team](https://support.udemy.com/hc/en-us) to request your own language.
-
-### Q13: Do you accept pull requests?
-
-**A:** No, for the simple reason that I want this repository to contain the _exact_ same code that is shown in the videos. _However, please feel free to add an issue if you found one._
-
-### Q14: I'm looking for the old course version (v1) files. Where can I find them?
-
-**A:** They are in this same repo, but in the [v1 branch](https://github.com/jonasschmedtmann/complete-javascript-course/tree/v1). So just go to [v1](https://github.com/jonasschmedtmann/complete-javascript-course/tree/v1), and download the code from there.
+Feel free to explore my progress or even contribute by submitting a pull request if you have suggestions for improvement!
